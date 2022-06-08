@@ -25,9 +25,11 @@ def get_events(max_number: int) -> List[Event]:
     logger.info("Retrieving calendar infos")
     utc_timezone = tz.tzutc()
     current_timezone = tz.tzlocal()
+    now = datetime.now()
+    in_two_weeks = now+relativedelta(days=+14)
 
     try:
-        event_list = events(WEBDAV_CALENDAR_URL, fix_apple=WEBDAV_IS_APPLE)
+        event_list = events(WEBDAV_CALENDAR_URL, fix_apple=WEBDAV_IS_APPLE, end=in_two_weeks)
         event_list.sort(key=sort_by_date)
 
         start_count = 0
@@ -40,7 +42,7 @@ def get_events(max_number: int) -> List[Event]:
             event_date = event.start.date()
             if (day_number == 1 and event_date.month < time.localtime().tm_mon):
                 start_count += 1
-                max_number += 1
+                ax_number += 1
             elif (event_date.day < day_number):
                 start_count += 1
                 max_number += 1
