@@ -155,7 +155,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
             #                               last_event_day.strftime("%a"))
             day_string = last_event_day.strftime("%a %d")
             draw_blk.text((PADDING_L, current_height), day_string,
-                          font=FONT_VOLLKORN_P, fill=1)
+                          font=FONT_VOLLKORN_BOLT_P, fill=1)
             current_height += get_font_height(FONT_VOLLKORN_P)
 
         # Draw event
