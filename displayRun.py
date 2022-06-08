@@ -6,6 +6,10 @@ import os
 import random
 import sys
 import time
+# wheater
+import json
+import requests
+# end wheater
 from datetime import datetime
 
 import schedule
@@ -55,6 +59,8 @@ FONT_POPPINS_P = ImageFont.truetype(
     os.path.join(FONT_DICT, 'Poppins-Regular.ttf'), 20)
 LINE_WIDTH = 3
 
+WEATHER_APIKEY = os.environ['WEATHER_APIKEY']
+
 
 def main():
     logger.info(datetime.now())
@@ -89,6 +95,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     locale.setlocale(locale.LC_ALL, LOCALE)
 
     PADDING_L = int(width/10)
+    PADDING_H = int(width/2)
     PADDING_TOP = int(height/100)
     now = time.localtime()
     max_days_in_month = calendar.monthrange(now.tm_year, now.tm_mon)[1]
@@ -97,6 +104,11 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     month_str = time.strftime("%B")
 
     # draw_text_centered(str(day_number), (width/2, 0), draw_blk, FONT_ROBOTO_H1)
+
+    weather_url = 'https://api.openweathermap.org/data/2.5/onecall?lat=48.3680721&lon=10.9021832&exclude=current,minutely,daily,alerts&appid=' + WEATHER_APIKEY + '&lang=de'
+    weather_request = requests.get(url=weather_url, timeout=10)
+    weather_data = weather_request.json()
+    #weather_data['hourly'][0]['weather']['description']
 
     # Heading
     current_height = height/20
@@ -110,6 +122,8 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     current_font_height = get_font_height(FONT_VOLLKORN_DATE)
     draw_blk.text((PADDING_L, current_height - current_font_height/10),
                   str(day_number), font=FONT_VOLLKORN_DATE, fill=1)
+    #draw_blk.text((PADDING_H, current_height - current_font_height/10), weather_data['hourly'][0]['weather'][0]['description'],
+    #              font=FONT_VOLLKORN_BOLT_P, fill=1)
     current_height += current_font_height
 
     # Month-Overview (with day-string)
