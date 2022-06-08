@@ -94,7 +94,7 @@ def main():
 def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDraw, image_red: TImage, height: int, width: int):
     locale.setlocale(locale.LC_ALL, LOCALE)
 
-    PADDING_L = int(width/10)
+    PADDING_L = int(width/15)
     PADDING_H = int(width/2)
     PADDING_TOP = int(height/100)
     now = time.localtime()
@@ -120,7 +120,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
 
     # Date
     current_font_height = get_font_height(FONT_VOLLKORN_DATE)
-    draw_blk.text((PADDING_L, current_height - current_font_height/10),
+    draw_blk.text((PADDING_L, current_height - current_font_height/10 - 20),
                   str(day_number), font=FONT_VOLLKORN_DATE, fill=1)
     #draw_blk.text((PADDING_H, current_height - current_font_height/10), weather_data['hourly'][0]['weather'][0]['description'],
     #              font=FONT_VOLLKORN_BOLT_P, fill=1)
