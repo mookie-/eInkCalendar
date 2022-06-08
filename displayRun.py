@@ -59,6 +59,7 @@ FONT_POPPINS_P = ImageFont.truetype(
     os.path.join(FONT_DICT, 'Poppins-Regular.ttf'), 20)
 LINE_WIDTH = 3
 
+waste_day = False
 WEATHER_APIKEY = os.environ['WEATHER_APIKEY']
 
 
@@ -195,6 +196,8 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
         if event.summary in waste_keywords:
           draw_red.text((PADDING_L + summmary_padding, current_height), event.summary,
                         font=FONT_VOLLKORN_P, fill=1)
+          if event.start.date() == datetime.now().date():
+            waste_day = True
         else:
           draw_blk.text((PADDING_L + summmary_padding, current_height), event.summary,
                         font=FONT_VOLLKORN_P, fill=1)
@@ -211,7 +214,10 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     draw_cake = (len(bithday_persons) > 0)
     max_image_height = 0
     for image in get_portal_images(draw_cake, bool(random.getrandbits(1)), bool(random.getrandbits(1)), bool(random.getrandbits(1))):
-        image_blk.paste(image, (y, current_height))
+        if waste_day:
+            image_red.paste(image, (y, current_height))
+        else:
+            image_blk.paste(image, (y, current_height))
         image_width, image_height = image.size
         y += image_width + PADDING_TOP
         max_image_height = image_height if (
