@@ -169,7 +169,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
 
         summmary_padding = 60
         waste_keywords = ['Kunststoffe und Metalle', 'Restmüll', 'Bioabfälle', 'Papier und Pappe']
-        if event.summary in waste_keywords
+        if event.summary in waste_keywords:
           draw_red.text((PADDING_L + summmary_padding, current_height), event.summary,
                         font=FONT_VOLLKORN_P, fill=1)
         else:
