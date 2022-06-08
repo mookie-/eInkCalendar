@@ -121,7 +121,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     tmp_right_aligned = width - \
         get_font_width(FONT_VOLLKORN_P, day_str.upper()) - PADDING_L/4
     draw_blk.text((tmp_right_aligned, current_height), day_str.upper(),
-                  font=FONT_VOLLKORN_P, fill=1)
+                  font=FONT_VOLLKORN_BOLT_P, fill=1)
 
     current_height += get_font_height(FONT_VOLLKORN_P) + PADDING_TOP
     draw_blk.line((PADDING_L, current_height, width, current_height),
