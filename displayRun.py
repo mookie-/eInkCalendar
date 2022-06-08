@@ -166,7 +166,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
 
     # Calendar
     current_height += height/40
-    event_list = get_events(6)
+    event_list = get_events(8)
 
     last_event_day = datetime.now().date()
     for event in event_list:
