@@ -123,14 +123,14 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     draw_blk.text((PADDING_L, current_height - current_font_height/10 - 30),
                   str(day_number), font=FONT_VOLLKORN_DATE, fill=1)
 
-    w_height = current_height - current_font_height/10
-    for x in range(6):
+    w_height = current_height - current_font_height/10 + 20
+    for x in range(7):
       w_date = datetime.fromtimestamp(weather_data['hourly'][x]['dt']).strftime("%H:%M")
       w_description = weather_data['hourly'][x]['weather'][0]['description']
       draw_blk.text((PADDING_H, w_height),
                     w_date + ': ' + w_description,
                     font=FONT_VOLLKORN_BOLT_P, fill=1)
-      w_height = w_height + 20
+      w_height = w_height + 25
 
 
     current_height += current_font_height
