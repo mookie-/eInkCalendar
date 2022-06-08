@@ -116,7 +116,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     current_height += PADDING_TOP
     day_of_month = str(day_number) + "/" + str(max_days_in_month)
     draw_blk.text((PADDING_L, current_height), day_of_month,
-                  font=FONT_VOLLKORN_P, fill=1)
+                  font=FONT_VOLLKORN_BOLT_P, fill=1)
 
     tmp_right_aligned = width - \
         get_font_width(FONT_VOLLKORN_P, day_str.upper()) - PADDING_L/4
