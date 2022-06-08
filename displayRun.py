@@ -162,15 +162,15 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
         event_text = ""
         if event.all_day:
             draw_blk.text((PADDING_L, current_height), "- : -",
-                          font=FONT_POPPINS_P, fill=1)
+                          font=FONT_VOLLKORN_P, fill=1)
         else:
             draw_blk.text((PADDING_L, current_height), event.start.strftime("%H:%M"),
-                          font=FONT_POPPINS_P, fill=1)
+                          font=FONT_VOLLKORN_P, fill=1)
 
         summmary_padding = 60
         draw_blk.text((PADDING_L + summmary_padding, current_height), event.summary,
-                      font=FONT_POPPINS_P, fill=1)
-        current_height += get_font_height(FONT_POPPINS_P) * 1.1
+                      font=FONT_VOLLKORN_P, fill=1)
+        current_height += get_font_height(FONT_VOLLKORN_P) * 1.1
 
     # Portal-Icons
     current_height = int(height*0.73)
