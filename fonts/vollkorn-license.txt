@@ -1,0 +1,5 @@
+»Vollkorn« is published under the “SIL Open Font License” (OFL).
+You may download the fonts, use them for commercial and non-commercial purposes, for print, web, office, apps, and everything else. And you may even change or adapt it.
+Every derivate has to be released under the same OFL license and shipped together with the updated logfile (Fontlog.txt). And please tell me about.
+You may not sell it by itself.
+Please check the valid and detailed license FAQ at scripts.sil.org/.

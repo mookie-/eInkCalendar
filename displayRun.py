@@ -29,6 +29,14 @@ FONT_DICT = os.path.join(CURRENT_DICT, 'fonts')
 
 DEBUG = False
 
+FONT_VOLLKORN_DATE = ImageFont.truetype(
+    os.path.join(FONT_DICT, 'Vollkorn-Black.ttf'), 200)
+FONT_VOLLKORN_H1 = ImageFont.truetype(
+    os.path.join(FONT_DICT, 'Vollkorn-Black.ttf'), 40)
+FONT_VOLLKORN_H2 = ImageFont.truetype(
+    os.path.join(FONT_DICT, 'Vollkorn-Black.ttf'), 30)
+FONT_VOLLKORN_P = ImageFont.truetype(
+    os.path.join(FONT_DICT, 'Vollkorn-Black.ttf'), 20)
 FONT_ROBOTO_DATE = ImageFont.truetype(
     os.path.join(FONT_DICT, 'Roboto-Black.ttf'), 200)
 FONT_ROBOTO_H1 = ImageFont.truetype(
@@ -37,6 +45,10 @@ FONT_ROBOTO_H2 = ImageFont.truetype(
     os.path.join(FONT_DICT, 'Roboto-Black.ttf'), 30)
 FONT_ROBOTO_P = ImageFont.truetype(
     os.path.join(FONT_DICT, 'Roboto-Black.ttf'), 20)
+FONT_VOLLKORN_BOLT_P = ImageFont.truetype(
+    os.path.join(FONT_DICT, 'Vollkorn-Bold.ttf'), 22)
+FONT_VOLLKORN_P = ImageFont.truetype(
+    os.path.join(FONT_DICT, 'Vollkorn-Regular.ttf'), 20)
 FONT_POPPINS_BOLT_P = ImageFont.truetype(
     os.path.join(FONT_DICT, 'Poppins-Bold.ttf'), 22)
 FONT_POPPINS_P = ImageFont.truetype(
@@ -91,27 +103,27 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     draw_blk.line((PADDING_L, current_height, width, current_height),
                   fill=1, width=LINE_WIDTH)
     draw_blk.text((PADDING_L, current_height), month_str.upper(),
-                  font=FONT_ROBOTO_H2, fill=1)
-    current_height += get_font_height(FONT_ROBOTO_H2)
+                  font=FONT_VOLLKORN_H2, fill=1)
+    current_height += get_font_height(FONT_VOLLKORN_H2)
 
     # Date
-    current_font_height = get_font_height(FONT_ROBOTO_DATE)
+    current_font_height = get_font_height(FONT_VOLLKORN_DATE)
     draw_blk.text((PADDING_L, current_height - current_font_height/10),
-                  str(day_number), font=FONT_ROBOTO_DATE, fill=1)
+                  str(day_number), font=FONT_VOLLKORN_DATE, fill=1)
     current_height += current_font_height
 
     # Month-Overview (with day-string)
     current_height += PADDING_TOP
     day_of_month = str(day_number) + "/" + str(max_days_in_month)
     draw_blk.text((PADDING_L, current_height), day_of_month,
-                  font=FONT_ROBOTO_P, fill=1)
+                  font=FONT_VOLLKORN_P, fill=1)
 
     tmp_right_aligned = width - \
-        get_font_width(FONT_ROBOTO_P, day_str.upper()) - PADDING_L/4
+        get_font_width(FONT_VOLLKORN_P, day_str.upper()) - PADDING_L/4
     draw_blk.text((tmp_right_aligned, current_height), day_str.upper(),
-                  font=FONT_ROBOTO_P, fill=1)
+                  font=FONT_VOLLKORN_P, fill=1)
 
-    current_height += get_font_height(FONT_ROBOTO_P) + PADDING_TOP
+    current_height += get_font_height(FONT_VOLLKORN_P) + PADDING_TOP
     draw_blk.line((PADDING_L, current_height, width, current_height),
                   fill=1, width=LINE_WIDTH)
 
@@ -143,8 +155,8 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
             #                               last_event_day.strftime("%a"))
             day_string = last_event_day.strftime("%a %d")
             draw_blk.text((PADDING_L, current_height), day_string,
-                          font=FONT_ROBOTO_P, fill=1)
-            current_height += get_font_height(FONT_ROBOTO_P)
+                          font=FONT_VOLLKORN_P, fill=1)
+            current_height += get_font_height(FONT_VOLLKORN_P)
 
         # Draw event
         event_text = ""
@@ -181,8 +193,8 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     if draw_cake:
         bithday_person_string = ", ".join(bithday_persons)
         draw_red.text((PADDING_L, current_height), bithday_person_string,
-                      font=FONT_ROBOTO_P, fill=1)
-        current_height += get_font_height(FONT_ROBOTO_P)
+                      font=FONT_VOLLKORN_P, fill=1)
+        current_height += get_font_height(FONT_VOLLKORN_P)
 
 
 def show_content(epd: eInk.EPD, image_blk: TImage, image_red: TImage):
