@@ -94,7 +94,7 @@ def main():
 def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDraw, image_red: TImage, height: int, width: int):
     locale.setlocale(locale.LC_ALL, LOCALE)
 
-    PADDING_L = int(width/15)
+    PADDING_L = int(width/20)
     PADDING_H = int(width/2)
     PADDING_TOP = int(height/100)
     now = time.localtime()
