@@ -121,7 +121,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     # Date
     current_font_height = get_font_height(FONT_VOLLKORN_DATE)
     draw_blk.text((PADDING_L, current_height - current_font_height/10),
-                  str(day_number), font=FONT_VOLLKORN_DATE, fill=1)
+                  str(day_number), font=FONT_ROBOTO_DATE, fill=1)
     #draw_blk.text((PADDING_H, current_height - current_font_height/10), weather_data['hourly'][0]['weather'][0]['description'],
     #              font=FONT_VOLLKORN_BOLT_P, fill=1)
     current_height += current_font_height
