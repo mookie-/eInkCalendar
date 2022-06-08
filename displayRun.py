@@ -168,7 +168,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
                           font=FONT_VOLLKORN_P, fill=1)
 
         summmary_padding = 60
-        if event.summary in ('Kunststoffe und Metalle', 'Restmüll', 'Bioabfälle', 'Papier und Pappe') {
+        if event.summary in ('Kunststoffe und Metalle', 'Restmüll', 'Bioabfälle', 'Papier und Pappe')
           draw_red.text((PADDING_L + summmary_padding, current_height), event.summary,
                         font=FONT_VOLLKORN_P, fill=1)
         else:
