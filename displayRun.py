@@ -168,7 +168,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
                           font=FONT_VOLLKORN_P, fill=1)
 
         summmary_padding = 60
-        draw_blk.text((PADDING_L + summmary_padding, current_height), event.summary,
+        draw_red.text((PADDING_L + summmary_padding, current_height), event.summary,
                       font=FONT_VOLLKORN_P, fill=1)
         current_height += get_font_height(FONT_VOLLKORN_P) * 1.1
 
