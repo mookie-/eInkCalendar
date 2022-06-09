@@ -253,7 +253,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     draw_blk.line((PADDING_L, current_height, width, current_height),
                   fill=1, width=LINE_WIDTH)
     current_height += PADDING_TOP
-    draw_blk.text((PADDING_L, current_height), re.sub("(.{45})", "\\1\n", s, 0, joke_data[0]['text']),
+    draw_blk.text((PADDING_L, current_height), re.sub("(.{45})", "\\1\n", joke_data[0]['text'], 0, re.DOTALL),
                   font=FONT_VOLLKORN_BOLT_P, fill=1)
     current_height += get_font_height(FONT_VOLLKORN_P)
 
