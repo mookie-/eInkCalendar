@@ -20,7 +20,7 @@ from PIL.ImageDraw import ImageDraw as TImageDraw
 import lib.epd7in5b_V2 as eInk
 from dataHelper import get_events, get_birthdays
 from displayHelpers import *
-from settings import LOCALE, ROTATE_IMAGE
+from settings import LOCALE, ROTATE_IMAGE, WEATHER_APIKEY
 
 import socket
 
