@@ -62,8 +62,6 @@ FONT_POPPINS_P = ImageFont.truetype(
 LINE_WIDTH = 3
 
 waste_day = False
-WEATHER_APIKEY = os.environ['WEATHER_APIKEY']
-
 
 def main():
     logger.info(datetime.now())
