@@ -22,6 +22,8 @@ from dataHelper import get_events, get_birthdays
 from displayHelpers import *
 from settings import LOCALE, ROTATE_IMAGE
 
+import socket
+
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"),
                     handlers=[logging.FileHandler(filename="info.log", mode='w'),
                     logging.StreamHandler()])
@@ -155,13 +157,24 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     draw_blk.line((PADDING_L, current_height, width, current_height),
                   fill=1, width=LINE_WIDTH)
 
+
+    host='127.0.0.1'
+    port=8423
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host,port))
+    s.sendall(b'get battery')
+    data = s.recv(1024)
+    s.close()
+    battery = int(strip(repr(data)).replace('singlebattery: ', ''))
+
     # Month-Tally-Overview
     current_height += PADDING_TOP
     tally_height = height/40
     tally_width = LINE_WIDTH + width/120  # width + padding
     available_width = width - PADDING_L
     tally_number = int(available_width / tally_width *
-                       (day_number / max_days_in_month))
+                       (battery / 100))
+#                       (day_number / max_days_in_month))
     x_position = PADDING_L + LINE_WIDTH/2
     for i in range(0, tally_number):
         draw_blk.line((x_position, current_height, x_position,
