@@ -111,6 +111,10 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     weather_data = weather_request.json()
     #weather_data['hourly'][0]['weather']['description']
 
+    joke_url = 'https://witzapi.de/api/joke'
+    joke_request = request.get(url=joke_url, timeout=10)
+    joke_data = joke_request.json()
+
     # Heading
     current_height = height/20
     draw_blk.line((PADDING_L, current_height, width, current_height),
@@ -214,7 +218,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     draw_cake = (len(bithday_persons) > 0)
     max_image_height = 0
     index = 0
-    for image in get_portal_images(draw_cake, waste_day, bool(random.getrandbits(1)), bool(random.getrandbits(1))):
+    for image in get_portal_images(draw_cake, waste_day, False, False):
         if waste_day and index == 1:
             image_red.paste(image, (y, current_height))
         else:
@@ -233,6 +237,10 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
                       font=FONT_VOLLKORN_P, fill=1)
         current_height += get_font_height(FONT_VOLLKORN_P)
 
+    # Draw joke
+    draw_blk.text((PADDING_L, current_height), joke_data[0]['text'],
+                  font=FONT_VOLLKORN_BOLT_P, fill=1)
+    current_height += get_font_height(FONT_VOLLKORN_P)
 
 def show_content(epd: eInk.EPD, image_blk: TImage, image_red: TImage):
     logger.info("Exporting finial images")
