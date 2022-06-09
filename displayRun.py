@@ -106,12 +106,14 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     month_str = time.strftime("%B")
 
     # draw_text_centered(str(day_number), (width/2, 0), draw_blk, FONT_ROBOTO_H1)
+    logger.info("get weather")
 
     weather_url = 'https://api.openweathermap.org/data/2.5/onecall?lat=48.3680721&lon=10.9021832&exclude=current,minutely,daily,alerts&appid=' + WEATHER_APIKEY + '&lang=de'
     weather_request = requests.get(url=weather_url, timeout=10)
     weather_data = weather_request.json()
     #weather_data['hourly'][0]['weather']['description']
 
+    logger.info("get joke")
     joke_url = 'https://witzapi.de/api/joke'
     joke_request = requests.get(url=joke_url, timeout=10)
     joke_data = joke_request.json()
