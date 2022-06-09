@@ -215,7 +215,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     max_image_height = 0
     index = 0
     for image in get_portal_images(draw_cake, waste_day, bool(random.getrandbits(1)), bool(random.getrandbits(1))):
-        if waste_day and index = 1:
+        if waste_day and index == 1:
             image_red.paste(image, (y, current_height))
         else:
             image_blk.paste(image, (y, current_height))
