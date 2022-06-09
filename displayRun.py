@@ -217,6 +217,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
         #if waste_day and :
         #    image_red.paste(image, (y, current_height))
         #else:
+        logger.info(inspect(image))
         image_blk.paste(image, (y, current_height))
         image_width, image_height = image.size
         y += image_width + PADDING_TOP
