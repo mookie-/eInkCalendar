@@ -166,7 +166,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     s.close()
     #battery = int(repr(data).replace('singlebattery: ', '').replace('battery: ', '').rstrip('\n'))
     battery = re.findall(r'\d+', repr(data))
-    logger.info("FOO" + battery)
+    logger.info("FOO" + join(battery))
 
     # Month-Tally-Overview
     current_height += PADDING_TOP
