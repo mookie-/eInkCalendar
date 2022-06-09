@@ -72,7 +72,7 @@ def main():
             logger.info("DEBUG-Mode activated...")
 
         image_blk = Image.open(os.path.join(
-            PICTURE_DICT, "blank-aperture.bmp"))
+            PICTURE_DICT, "blank-hk.bmp"))
         image_red = Image.open(os.path.join(
             PICTURE_DICT, "blank-hk.bmp"))
 
