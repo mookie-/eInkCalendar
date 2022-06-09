@@ -34,7 +34,7 @@ CURRENT_DICT = os.path.dirname(os.path.realpath(__file__))
 PICTURE_DICT = os.path.join(CURRENT_DICT, 'pictures')
 FONT_DICT = os.path.join(CURRENT_DICT, 'fonts')
 
-DEBUG = False
+DEBUG = True
 
 FONT_VOLLKORN_DATE = ImageFont.truetype(
     os.path.join(FONT_DICT, 'Vollkorn-Black.ttf'), 200)
