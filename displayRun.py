@@ -213,15 +213,16 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     bithday_persons = get_birthdays()
     draw_cake = (len(bithday_persons) > 0)
     max_image_height = 0
-    for image in get_portal_images(draw_cake, bool(random.getrandbits(1)), bool(random.getrandbits(1)), bool(random.getrandbits(1))):
-        if waste_day:
-            image_red.paste(image, (y, current_height))
-        else:
-            image_blk.paste(image, (y, current_height))
+    for image in get_portal_images(draw_cake, waste_day, bool(random.getrandbits(1)), bool(random.getrandbits(1))):
+        #if waste_day and :
+        #    image_red.paste(image, (y, current_height))
+        #else:
+        image_blk.paste(image, (y, current_height))
         image_width, image_height = image.size
         y += image_width + PADDING_TOP
         max_image_height = image_height if (
             image_height > max_image_height) else max_image_height
+
     current_height += max_image_height + PADDING_TOP
     # Draw name of birthday-person
     if draw_cake:

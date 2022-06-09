@@ -58,7 +58,7 @@ def convert_image_to_screen(image: TImage) -> TImage:
     return Image.fromarray(converted_image_array)
 
 
-def get_portal_images(cake=False, flying=False, pellet_hazard=False, bridge=False) -> List[TImage]:
+def get_portal_images(cake=False, waste=False, pellet_hazard=False, bridge=False) -> List[TImage]:
     def load_picture(name: str) -> TImage:
         return convert_image_to_screen(Image.open(
             os.path.join(PICTURE_DICT, name)))
@@ -78,12 +78,15 @@ def get_portal_images(cake=False, flying=False, pellet_hazard=False, bridge=Fals
         "Chamber_icon_light_bridge.gif", "Chamber_icon_light_bridge_on.gif"]
     image_flying_exit_names = [
         "Chamber_icon_flying_exit.gif", "Chamber_icon_flying_exit_on.gif"]
+    image_waste_names = ["waste.gif", "waste_on.gif"]
 
     image_list = []
     image_list.append(load_picture(
         image_cake_names[bool_to_array_index(cake)]))
     image_list.append(load_picture(
-        image_flying_exit_names[bool_to_array_index(flying)]))
+        image_waste_names[bool_to_array_index(waste)]))
+    #image_list.append(load_picture(
+    #    image_flying_exit_names[bool_to_array_index(flying)]))
     image_list.append(load_picture(
         image_pellet_hazard_names[bool_to_array_index(pellet_hazard)]))
     image_list.append(load_picture(
