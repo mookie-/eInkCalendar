@@ -112,7 +112,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     #weather_data['hourly'][0]['weather']['description']
 
     joke_url = 'https://witzapi.de/api/joke'
-    joke_request = request.get(url=joke_url, timeout=10)
+    joke_request = requests.get(url=joke_url, timeout=10)
     joke_data = joke_request.json()
 
     # Heading
