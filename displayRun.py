@@ -160,10 +160,10 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     port=8423
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host,port))
-    s.sendall('get battery')
+    s.sendall(b'get battery')
     data = s.recv(1024)
     s.close()
-    battery = int(repr(data).replace('singlebattery: ', '').replace('battery: ', '').replace('\n', ''))
+    battery = int(repr(data).replace('singlebattery: ', '').replace('battery: ', '').rstrip('\n'))
 
     # Month-Tally-Overview
     current_height += PADDING_TOP
