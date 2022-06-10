@@ -156,17 +156,9 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
     draw_blk.line((PADDING_L, current_height, width, current_height),
                   fill=1, width=LINE_WIDTH)
 
-
-    #logger.info("get battery")
-    #host='127.0.0.1'
-    #port=8423
-    #s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #s.connect((host,port))
-    #s.sendall(b'get battery')
-    #data = s.recv(1024)
-    #s.close()
-    #battery = int(''.join(re.findall(r'\d+', repr(data))))
-    battery = 42
+    file_handle = open('/home/kim/battery', 'r')
+    lines = file_handle.readlines()
+    battery = lines[0]
 
     # Month-Tally-Overview
     current_height += PADDING_TOP

@@ -1,4 +1,11 @@
 #!/bin/bash
+battery=$(echo "get battery" | nc -q 0 127.0.0.1 8423)
+if [[ x"$rtc_time" =~ "battery:" ]]; then
+  battery=${battery#*" "}
+  battery=${battery%.*}
+  echo -n $battery > /home/kim/battery
+fi
+
 cd $(dirname $0)
 python3 ./run_calendar_once.py
 
