@@ -158,7 +158,7 @@ def render_content(draw_blk: TImageDraw, image_blk: TImage,  draw_red: TImageDra
 
     file_handle = open('/home/kim/battery', 'r')
     lines = file_handle.readlines()
-    battery = lines[0]
+    battery = int(lines[0])
 
     # Month-Tally-Overview
     current_height += PADDING_TOP
