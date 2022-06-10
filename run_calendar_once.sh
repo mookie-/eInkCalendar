@@ -25,6 +25,7 @@ if [[ x"$rtc_time" =~ "rtc_time:" ]]; then
 
     r=$(echo "rtc_alarm_set ${wakeup_time} 127" | nc -q 0 127.0.0.1 8423)
     if [[ x"$r" =~ "done" ]]; then
+        sleep 30
         sudo shutdown now
     else
         echo "Set RTC wakeup time error"
