@@ -1,6 +1,6 @@
 #!/bin/bash
 battery=$(echo "get battery" | nc -q 0 127.0.0.1 8423)
-if [[ x"$rtc_time" =~ "battery:" ]]; then
+if [[ x"$battery" =~ "battery:" ]]; then
   battery=${battery#*" "}
   battery=${battery%.*}
   echo -n $battery > /home/kim/battery
