@@ -7,6 +7,7 @@ if [[ x"$battery" =~ "battery:" ]]; then
 fi
 
 cd $(dirname $0)
+git pull
 python3 ./run_calendar_once.py
 
 set -e
