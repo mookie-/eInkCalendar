@@ -12,7 +12,7 @@ python3 ./run_calendar_once.py
 set -e
 
 # Wakeup after n seconds
-WAKEUP_AFTER=1800
+WAKEUP_AFTER=3600
 
 rtc_time=$(echo "get rtc_time" | nc -q 0 127.0.0.1 8423)
 if [[ x"$rtc_time" =~ "rtc_time:" ]]; then
