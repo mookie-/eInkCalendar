@@ -30,10 +30,10 @@ if [[ x"$rtc_time" =~ "rtc_time:" ]]; then
         sleep 30
         sudo shutdown now
     else
-        echo "Set RTC wakeup time error"
+        echo "Set RTC wakeup time error" >> /home/kim/eink.log
         exit 1
     fi
 else
-    echo "Get RTC time errror"
+    echo "Get RTC time errror" >> /home/kim/eink.log
     exit 1
 fi
