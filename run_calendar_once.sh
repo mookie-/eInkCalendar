@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 60
 battery=$(echo "get battery" | nc -q 0 127.0.0.1 8423)
 if [[ x"$battery" =~ "battery:" ]]; then
   battery=${battery#*" "}
