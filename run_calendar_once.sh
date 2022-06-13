@@ -1,6 +1,11 @@
 #!/bin/bash
+date >> /home/kim/eink.log
+echo "start" >> /home/kim/eink.log
+
 sleep 60
+
 battery=$(echo "get battery" | nc -q 0 127.0.0.1 8423)
+echo "battery: ${battery}" >> /home/kim/eink.log
 if [[ x"$battery" =~ "battery:" ]]; then
   battery=${battery#*" "}
   battery=${battery%.*}
@@ -17,6 +22,7 @@ set -e
 WAKEUP_AFTER=3600
 
 rtc_time=$(echo "get rtc_time" | nc -q 0 127.0.0.1 8423)
+echo "rtc_time: ${rtc_time}" >> /home/kim/eink.log
 if [[ x"$rtc_time" =~ "rtc_time:" ]]; then
     rtc_time=${rtc_time#*" "}
 
