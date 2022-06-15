@@ -37,9 +37,9 @@ if [[ x"$rtc_time" =~ "rtc_time:" ]]; then
         sudo shutdown now
     else
         echo "Set RTC wakeup time error" >> /home/kim/eink.log
-        exit 1
+        sudo reboot
     fi
 else
     echo "Get RTC time errror" >> /home/kim/eink.log
-    exit 1
+    sudo reboot
 fi
